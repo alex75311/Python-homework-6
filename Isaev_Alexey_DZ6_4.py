@@ -10,6 +10,8 @@ TownCar ​ и ​ WorkCar ​ переопределите метод ​ show_
 атрибутам, выведите результат. Выполните вызов методов и также покажите результат
 '''
 
+from random import randint
+
 
 class Car:
     def __init__(self, speed=0, color='red', name='car-car'):
@@ -46,7 +48,9 @@ class TownCar(Car):
 
 
 class SportCar(Car):
-    pass
+    def __init__(self, speed=0, color='red', name='sport-car'):
+        super().__init__(speed, color, name)
+        self.my_speed += 100
 
 
 class WorkCar(Car):
@@ -63,7 +67,7 @@ class PoliceCar(Car):
         self.is_police = True
 
 
-a = TownCar(40, 'black', 'Town1')
+a = TownCar(randint(10, 60), 'black', 'Town1')
 print(a.name)
 a.go()
 a.show_speed()
@@ -77,7 +81,7 @@ b.show_speed()
 b.stop()
 b.show_police()
 
-c = PoliceCar(90, 'blue')
+c = PoliceCar(randint(70, 130), 'blue')
 print(c.name)
 c.show_police()
 c.show_speed()
