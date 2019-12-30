@@ -16,7 +16,7 @@ class TrafficLight():
     _color = ''
 
     def running(self):
-        for _ in range(0, 5):
+        while True:
             for el in self.__color_arr:
                 self._color = el
                 print(self._color)
